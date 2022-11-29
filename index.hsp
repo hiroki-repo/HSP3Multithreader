@@ -1,0 +1,40 @@
+#include "hsp3mlthreader.as"
+
+dupptr hspctx4hw0,AllocateHSPThreadCTX(),HSPThreadCTXSIZE,4
+dupptr hspctx4hw1,AllocateHSPThreadCTX(),HSPThreadCTXSIZE,4
+
+fname="hello.ax"
+
+hspctx4hw0(0)=0x100
+hspctx4hw0(1)=64
+hspctx4hw0(2)=48
+hspctx4hw0(3)=hwnd
+
+hspctx4hw0((4+(4*0))+(0))=1
+hspctx4hw0((4+(4*0))+(1))=0
+hspctx4hw0((4+(4*0))+(2))=0
+hspctx4hw0((4+(4*0))+(3))=0
+
+hspctx4hw0((4+(4*0x102))+(0))=1
+hspctx4hw0((4+(4*0x102))+(1))=0
+hspctx4hw0((4+(4*0x102))+(2))=0
+hspctx4hw0((4+(4*0x102))+(3))=varptr(fname)
+
+
+hspctx4hw1(0)=0x100
+hspctx4hw1(1)=64
+hspctx4hw1(2)=48
+hspctx4hw1(3)=hwnd
+
+hspctx4hw1((4+(4*0))+(0))=1
+hspctx4hw1((4+(4*0))+(1))=64
+hspctx4hw1((4+(4*0))+(2))=0
+hspctx4hw1((4+(4*0))+(3))=0
+
+hspctx4hw1((4+(4*0x102))+(0))=1
+hspctx4hw1((4+(4*0x102))+(1))=0
+hspctx4hw1((4+(4*0x102))+(2))=0
+hspctx4hw1((4+(4*0x102))+(3))=varptr(fname)
+
+CreateHSPThread varptr(hspctx4hw0)
+CreateHSPThread varptr(hspctx4hw1)

@@ -1,0 +1,4 @@
+
+repeat 16
+bcopy "hsp3imp.dll","hsp3imp"+str(cnt+1)+".dll"
+loop
